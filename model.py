@@ -9,7 +9,6 @@ sys.path.append('/home/madm/Documents/EANN_recon/src/')
 # 导入失败时重启下ssh
 from gradreverse import *
 
-
 class EANN(nn.Module):
     def __init__(self, args, W):
         super(EANN, self).__init__()
@@ -21,6 +20,7 @@ class EANN(nn.Module):
         """Embedding"""
         emb_dim = args.embed_dim 
         vocab_size = args.vocab_size
+        # 创建一个词嵌入模型 权重是W
         self.embed = nn.Embedding(vocab_size, emb_dim)
         self.embed.weight = nn.Parameter(torch.from_numpy(W))
 

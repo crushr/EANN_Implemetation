@@ -9,5 +9,5 @@ class ReverseLayerF(Function):
     def backward(self, grad_output):
         return (grad_output * -self.lambd)
 
-def grad_reverse(x,args):
+def grad_reverse(x, args):
     return ReverseLayerF().forward(x, args)
